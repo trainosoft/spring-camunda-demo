@@ -8,12 +8,5 @@ node {
                 sh "./mvnw clean install -DskipTests"
             }
         }
-        
-        stage("Tests and Deployment") {
-            stage("Staging") 
-                    sh 'nohup ./mvnw spring-boot:run -Dserver.port=8989 &'
-                }  
-            }
-        }
     }
 }
