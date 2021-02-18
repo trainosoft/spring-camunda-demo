@@ -10,20 +10,6 @@ node {
         }
         
         stage("Tests and Deployment") {
-            parallel 'Unit tests': {
-                stage("Runing unit tests") {
-                    try {
-                        sh "./mvnw test -Punit"
-                    } catch(err) {
-                        step([$class: 'JUnitResultArchiver', testResults: 
-                          '**/target/surefire-reports/TEST-*UnitTest.xml'])
-                        throw err
-                    }
-                   step([$class: 'JUnitResultArchiver', testResults: 
-                     '**/target/surefire-reports/TEST-*UnitTest.xml'])
-                }
-            }, 
-            
             stage("Staging") {
                 sh "pid=\$(lsof -i:8989 -t); kill -TERM \$pid " 
                   + "|| kill -KILL \$pid"
