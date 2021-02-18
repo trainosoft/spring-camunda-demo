@@ -1,12 +1,12 @@
 node {
-    stage 'Clone the project'
-    git 'https://github.com/eugenp/tutorials.git'
+  stage('SCM-Checkout'){
+    git 'https://github.com/trainosoft/spring-camunda-demo.git'
+  }
   
-    dir('spring-jenkins-pipeline') {
-        stage("Compilation and Analysis") {
-            parallel 'Compilation': {
-                sh "./mvnw clean install -DskipTests"
-            }
-        }
-    }
+  stage('Compile-package'){
+    def mvnHome = tool name: 'Jenkins-maven', type: 'maven'
+    sh "${mvnHome}/bin/mvn package"
+  }
+  
+  
 }
