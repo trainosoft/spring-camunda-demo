@@ -22,21 +22,7 @@ node {
                    step([$class: 'JUnitResultArchiver', testResults: 
                      '**/target/surefire-reports/TEST-*UnitTest.xml'])
                 }
-            }, 'Integration tests': {
-                stage("Runing integration tests") {
-                    try {
-                        sh "./mvnw test -Pintegration"
-                    } catch(err) {
-                        step([$class: 'JUnitResultArchiver', testResults: 
-                          '**/target/surefire-reports/TEST-' 
-                            + '*IntegrationTest.xml'])
-                        throw err
-                    }
-                    step([$class: 'JUnitResultArchiver', testResults: 
-                      '**/target/surefire-reports/TEST-' 
-                        + '*IntegrationTest.xml'])
-                }
-            }
+            }, 
             
             stage("Staging") {
                 sh "pid=\$(lsof -i:8989 -t); kill -TERM \$pid " 
