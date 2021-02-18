@@ -10,10 +10,9 @@ node {
         }
         
         stage("Tests and Deployment") {
-            stage("Staging") {
-                  withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
+            stage("Staging") 
                     sh 'nohup ./mvnw spring-boot:run -Dserver.port=8989 &'
-                }   
+                }  
             }
         }
     }
