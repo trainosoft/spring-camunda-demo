@@ -32,7 +32,7 @@ public class CamundaSpringDemoApplication {
 		List<ProcessInstance> processInstances = runtimeService.createProcessInstanceQuery().active().list();
 		
 		for(ProcessInstance processInstance : processInstances) {
-			LOGGER.info("Process instsance id 123123: {}", processInstance.getId())
+			LOGGER.info("Process instsance id 123123: {}", processInstance.getId() )
 			LOGGER.info("Process instsance definition id : {}", processInstance.getProcessDefinitionId());
 
 		}
