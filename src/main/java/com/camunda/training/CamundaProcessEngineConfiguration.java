@@ -34,7 +34,7 @@ public class CamundaProcessEngineConfiguration {
 
 	@Bean
 	public SpringProcessEngineConfiguration processEngineConfiguration() throws IOException {
-		LOGGER.debug("Process engine configuration is being code updated");
+		LOGGER.debug("Process engine configuration is being code updated ");
 		SpringProcessEngineConfiguration config = new SpringProcessEngineConfiguration();
 
 		config.setDataSource(dataSource);
