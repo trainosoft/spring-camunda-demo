@@ -25,7 +25,7 @@ public class CamundaProcessEngineConfiguration {
 	@Value("${camunda.bpm.history-level:none}")
 	private String historyLevel;
 
-	// add more configuration here
+	// add more configuration here    
 	// ---------------------------
 
 	// configure data source via application.properties
